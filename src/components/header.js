@@ -1,16 +1,23 @@
 const Header = (title, date, temp) => {
-  // TASK 1
-  // ---------------------
-  // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
-  // The tags used, the hierarchy of elements and their attributes must match the provided markup exactly!
-  // The text inside elements will be set using their `textContent` property (NOT `innerText`).
-  //
-  //  <div class="header">
-  //    <span class="date">{ date }</span>
-  //    <h1>{ title }</h1>
-  //    <span class="temp">{ temp }</span>
-  //  </div>
-  //
+  const header = document.createElement('div');
+  const dateLabel = document.createElement('span');
+  const h1 = document.addElement('h1');
+  const tempLabel = document.createElement('span');
+  
+  header.classList.add('header');
+  dateLabel.classList.add('date');
+  tempLabel = classList.add('temp');
+  
+  dateLabel.textContent = date;
+  h1.textContent = title;
+  tempLabel.textContent = temp;
+
+  header.append(dateLabel);
+  header.append(h1);
+  header.append(tempLabel);
+
+  return header;
+ 
 }
 
 const headerAppender = (selector) => {
@@ -23,3 +30,17 @@ const headerAppender = (selector) => {
 }
 
 export { Header, headerAppender }
+
+
+ // TASK 1
+  // ---------------------
+  // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
+  // The tags used, the hierarchy of elements and their attributes must match the provided markup exactly!
+  // The text inside elements will be set using their `textContent` property (NOT `innerText`).
+  //
+  //  <div class="header">
+  //    <span class="date">{ date }</span>
+  //    <h1>{ title }</h1>
+  //    <span class="temp">{ temp }</span>
+  //  </div>
+  //
