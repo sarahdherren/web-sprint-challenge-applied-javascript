@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//created a container for the topic tabs 
 const Tabs = (topics) => {
     const topicContainer = document.createElement('div');
     topicContainer.classList.add('topics');
@@ -12,6 +13,8 @@ const Tabs = (topics) => {
     });
   return topicContainer;
 }
+
+//recieve & add the topics to the Tab component from the api
 
 const tabsAppender = (selector) => {
   
