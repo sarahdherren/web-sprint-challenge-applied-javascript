@@ -36,6 +36,7 @@ const Card = (article) => {
 const cardAppender = (selector) => {
   axios.get(`https://lambda-times-api.herokuapp.com/articles`)
     .then(res => {
+      console.log(res.data)
       const combinedArticles = [...res.data.articles.bootstrap, ...res.data.articles.javascript, ...res.data.articles.jquery, ...res.data.articles.node, ...res.data.articles.technology];
       combinedArticles.forEach((article) => {
         document.querySelector(selector).append(Card(article));

@@ -9,8 +9,11 @@ const Tabs = (topics) => {
       topicSection.classList.add('tab');
       topicSection.textContent = topic;
       topicContainer.append(topicSection);
-
+      topicSection.addEventListener('click', (e => {
+        console.log(topic)
+      }))
     });
+
   return topicContainer;
 }
 
@@ -20,6 +23,7 @@ const tabsAppender = (selector) => {
   
     axios.get(`https://lambda-times-api.herokuapp.com/topics`)
     .then(res => {
+      console.log(res.data)
       document.querySelector(selector).append(Tabs(res.data.topics));
     });
 }
