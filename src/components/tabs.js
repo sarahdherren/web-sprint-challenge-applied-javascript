@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Card } from './card';
 
 //created a container for the topic tabs 
 const Tabs = (topics) => {
@@ -9,13 +10,46 @@ const Tabs = (topics) => {
       topicSection.classList.add('tab');
       topicSection.textContent = topic;
       topicContainer.append(topicSection);
+
       topicSection.addEventListener('click', (e => {
-        console.log(topic)
-      }))
+        filteredArticleAppender(topic, '.cards-container')
+        
+        }))
     });
 
+      
   return topicContainer;
 }
+
+const filteredArticleAppender = (topic, selector) => {
+  axios.get(`https://lambda-times-api.herokuapp.com/articles`)
+    .then(res => {
+      console.log(res.data.articles)
+      if(topic === 'javascript'){
+        const javascript = res.data.articles.javascript
+        javascript.forEach(article => {
+          document.querySelector(selector).prepend(Card(article))})
+      } else if(topic === 'bootstrap'){
+        const bootstrap = res.data.articles.bootstrap
+        bootstrap.forEach(article => {
+          document.querySelector(selector).prepend(Card(article))})
+      } else if(topic === 'technology'){
+        const technology = res.data.articles.technology
+        technology.forEach(article => {
+          document.querySelector(selector).prepend(Card(article))})
+      } else if(topic === 'jquery'){
+        const jquery = res.data.articles.jquery
+        jquery.forEach(article => {
+          document.querySelector(selector).prepend(Card(article))})
+      } else if(topic === 'node.js'){
+        const node = res.data.articles.node
+        node.forEach(article => {
+          document.querySelector(selector).prepend(Card(article))})
+      }
+    
+      
+   
+})}
 
 //recieve & add the topics to the Tab component from the api
 

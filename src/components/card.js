@@ -2,6 +2,8 @@
 //create card component, added classes & text to appropriate elements, added the elements to the page
 //added a click event to console log the headline of the article clicked
 
+
+
 const Card = (article) => {
   const cardContainer = document.createElement('div');
   const headline = document.createElement('div');
@@ -36,13 +38,16 @@ const Card = (article) => {
 const cardAppender = (selector) => {
   axios.get(`https://lambda-times-api.herokuapp.com/articles`)
     .then(res => {
-      console.log(res.data)
+      console.log(res.data.articles)
       const combinedArticles = [...res.data.articles.bootstrap, ...res.data.articles.javascript, ...res.data.articles.jquery, ...res.data.articles.node, ...res.data.articles.technology];
+      console.log(combinedArticles)
       combinedArticles.forEach((article) => {
         document.querySelector(selector).append(Card(article));
       })
     })
 }
+
+
 
 export { Card, cardAppender }
 
