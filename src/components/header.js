@@ -1,5 +1,5 @@
 
-
+//create header component
 const Header = (title, date, temp) => {
   const heading = document.createElement('div');
   const dateLabel = document.createElement('span');
@@ -24,9 +24,14 @@ const Header = (title, date, temp) => {
 
 }
 
+const date = new Date;
+const currDate = date.toDateString();
 
+
+//add header component above to page 
+//utilize 
 const headerAppender = (selector) => {
-   document.querySelector(selector).append(Header('Lambda Times', 'January 23rd, 2021', '70F'));
+   document.querySelector(selector).append(Header('Lambda Times', currDate, '70F'));
 }
 
 export { Header, headerAppender }
