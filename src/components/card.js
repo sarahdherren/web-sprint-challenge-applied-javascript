@@ -1,3 +1,7 @@
+
+//create card component, added classes & text to appropriate elements, added the elements to the page
+//added a click event to console log the headline of the article clicked
+
 const Card = (article) => {
   const cardContainer = document.createElement('div');
   const headline = document.createElement('div');
